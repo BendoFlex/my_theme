@@ -18,27 +18,29 @@ get_header();
 ?>
 
 <div class="content-area">
-    <div class="slider">Slider</div>
-    <div class="popular-products">Popular Products</div>
-    <div class="new-arrivals">New Arrivals</div>
-    <div class="deal-of-the-week">Deal of the week</div>
+   
     <div class="lab-blog">
         <div class="container">
+            <div class="row">
             <?php
                 if (have_posts()):
 
                     while (have_posts()) : the_post(); 
                     ?>
-                        <p><?=the_title();?></p>
+                      <article class="col">
+                        <h2><?=the_title();?></p>
                         <p><?=the_content();?></p>
+                      </article>
                     <?php 
                     endwhile;
                 else: 
             ?> 
                     <p>Nothing to display write an article</p>
             <?php endif;?>
+            </div>
         </div>
     </div>
 </div>
-   
+
+
 <?php get_footer(); ?>
