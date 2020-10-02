@@ -26,20 +26,36 @@
             <div class="top_bar">
                 <div class="container">
                     <div class="row">
-                        <div class="brand col-3 col-sm-3">
+                        <div class="brand col-md-3 col-lg-2">
                             <div class="logoContainer"><img src="https://via.placeholder.com/80" alt="logo"></div>
                         </div>
-                        <div class="second_column col-9 col-sm-9">
-                            <div class="account">Account</div>
-                            <div class="main-menu">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        "theme_location"=> "my_theme_main_menu",
-                                    )
-                                );
-                                ?>
+                        <div class="second_column col-md-9 col-lg-10">
+                            <div class="row">
+                                <div class="account col-12">Account</div>
+                                <div class="col-12">
+                                    <nav class="main-menu navbar navbar-expand-md navbar-light" role="navigation">
+                                            <!-- Brand and toggle get grouped for better mobile display -->
+                                            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'your-theme-slug' ); ?>">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                                <?php
+                                                wp_nav_menu( array(
+                                                    'theme_location'    => 'my_theme_main_menu',
+                                                    'depth'             => 3,
+                                                    'container'         => 'div',
+                                                    'container_class'   => 'collapse navbar-collapse',
+                                                    'container_id'      => 'bs-example-navbar-collapse-1',
+                                                    'menu_class'        => 'nav navbar-nav',
+                                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                                                    'walker'            => new WP_Bootstrap_Navwalker(),
+                                                ) );
+                                                ?>
+                                        </div>
+                                    </nav>
+                                </div>
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </div>

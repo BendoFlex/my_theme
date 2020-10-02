@@ -6,12 +6,16 @@ Description: Mon premier thème !
 Version: 1.0
 */
 
+
+
+
 h1 {
     color: red;
 }
 
 body {
     background-color:white;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .my_article {

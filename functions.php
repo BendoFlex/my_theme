@@ -7,6 +7,24 @@ add_theme_support( 'post-thumbnails' );
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );
 
+/**
+ * Register Custom Navigation Walker
+ */
+add_action('after_setup_theme','register_navwalker'); // studying how this component bootstrap is worked and class
+
+function register_navwalker(){ 
+
+    if( file_exists(get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php') ){ 
+        require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+    }
+    else{
+        return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+    }
+    
+}
+
+
+
 
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
@@ -18,6 +36,14 @@ function my_theme_scripts() {
         array(),
         '4.5.2',
         'all'
+    );
+
+    //googleFont 
+
+    wp_enqueue_style(
+        'customs-google-font',
+        'https://fonts.googleapis.com/css?family=Rajdhani:400,500,600,700|Seaweed+Script',
+        false
     );
 
     wp_enqueue_style( 
