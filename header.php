@@ -18,8 +18,7 @@
         <header>
             <div class="search_bar">
                 <div class="container">
-                    <input type="text">
-                    <button>Search</button>
+                    <?php get_search_form();?>
                 </div> 
             </div>
 

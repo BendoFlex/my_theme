@@ -35,4 +35,18 @@ What is that?
 </button>
 data-toogle/data-target
 is this a js target?
+
+
+flex : 0 0 50%
+
+
+reflex : search for the term when you see
+
+
+
+
+Templating to mess with search form we have to create searchform.php and in our case make it compatible with product search 
+with an hidden input with post_type = "product"
+ <?php $post_type = class_exists("WooCommerce") ?  "product" : "post"?>
+ <input type="hidden" value="<?=$post_type?>" name="post_type" id="post_type"/>
  
