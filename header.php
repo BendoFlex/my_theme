@@ -32,7 +32,13 @@
                         </div>
                         <div class="second_column col-md-9 col-lg-10">
                             <div class="row">
-                                <div class="account col-12">Account</div>
+                                <div class="account col-12">
+                                    <div class="cart text-right">
+                                        <a href="<?php echo wc_get_cart_url();?>">
+                                            <p>Cart</p>
+                                        </a>
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <nav class="main-menu navbar navbar-expand-md navbar-light" role="navigation">
                                             <!-- Brand and toggle get grouped for better mobile display -->
