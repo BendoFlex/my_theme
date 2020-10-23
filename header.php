@@ -18,7 +18,9 @@
         <header>
             <div class="search_bar">
                 <div class="container">
-                    <?php get_search_form();?>
+                    <div class="text-center d-md-flex text-align-center">
+                        <?php get_search_form();?>
+                    </div>
                 </div> 
             </div>
 
