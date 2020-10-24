@@ -32,7 +32,6 @@ body {
     display:flex;
     justify-content: space-between;
     margin :20px;
-    background-color: red;
 }
 
 .second-column {
@@ -116,4 +115,14 @@ body {
 
 .woocommerce-cart table.cart td.actions .coupon .input-text {
     width:200px;
+}
+
+.cart .items {
+    background-color: red;
+    color:#fff;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    text-align: center;
+    display:inline-block
 }

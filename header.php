@@ -28,15 +28,46 @@
                 <div class="container">
                     <div class="row">
                         <div class="brand col-md-3 col-lg-2">
-                            <div class="logoContainer"><img src="https://via.placeholder.com/80" alt="logo"></div>
+                            <div class="logoContainer"><img src="https://via.placeholder.com/80" alt="logo">
+                                <a href="<?php home_url( '/');?>">
+                                        <?php if( has_custom_logo()):?>
+                                            <?php the_custom_logo();?>
+                                        <?php else : ?>
+                                            <p class="site-title"><?php bloginfo( 'title');?></p>
+                                            <span class="site-desc"><?php bloginfo( 'description');?></span>
+                                        <?php endif;?>
+                                </a>  
+                            </div>
                         </div>
                         <div class="second_column col-md-9 col-lg-10">
                             <div class="row">
                                 <div class="account col-12">
-                                    <div class="cart text-right">
-                                        <a href="<?php echo wc_get_cart_url();?>">
-                                            <p>Cart</p>
-                                        </a>
+                                    <div class="row">
+                                        <?php if(class_exists("Woocommerce")) :?>
+                                        <div class="account col-12">
+                                            <div class="navbar-expand">
+                                                <ul class="navbar-nav float-left">
+                                                    <?php if (is_user_logged_in()) :?>
+                                            
+                                                     <li>
+                                                        <a class="nav-link" href="<?=esc_url(get_permalink( get_option( 'woocommerce_myaccount_page_id') ) );?>">My account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a  class="nav-link" href="<?= esc_url ( wp_logout_url( get_permalink( get_option( 'woocommerce_myaccount_page_id') ) ) );?>">Logout</a>
+                                                    </li>
+                                                    <?php else :?>
+                                                    <li>
+                                                        <a  class="nav-link" href="<?php echo esc_url(get_permalink( get_option( 'woocommerce_myaccount_page_id') ) );?>">Login/Register</a>
+                                                    </li>
+                                                    <?php endif;?>
+                                                </ul>
+                                            </div>
+                                            <div class="cart text-right">
+                                                <a href="<?php echo wc_get_cart_url();?>"><span class="cart-icon">Cart</span></a>
+                                                <span class="items"> <?= WC()->cart->get_cart_contents_count();?></span>
+                                            </div>
+                                        </div>
+                                        <?php endif ;?>
                                     </div>
                                 </div>
                                 <div class="col-12">
