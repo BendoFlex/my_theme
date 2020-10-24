@@ -32,4 +32,4 @@ function my_theme_customizer ($wp_customize) {
       //filter text fied "sanitize"
 }
 
-add_action("customize_register","my_theme_customizer");
+add_action("customize_register","my_theme_customizer");// see change in wp_option DB => theme_mods_my_theme
