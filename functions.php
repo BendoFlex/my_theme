@@ -1,12 +1,7 @@
 <?php
 //STEPS : STYLING OK / MENU / WP _SUPPORT / LOOP 
 
-// Ajouter la prise en charge des images mises en avant
-add_theme_support( 'post-thumbnails' );
-
-// Ajouter automatiquement le titre du site dans l'en-tête du site
-add_theme_support( 'title-tag' );
-
+require get_template_directory() . '/inc/customizer.php';
 /**
  * Register Custom Navigation Walker
  */
@@ -111,6 +106,12 @@ function my_theme_config(){
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-slider');
+  
+    add_theme_support( 'post-thumbnails' );   // Ajouter la prise en charge des images mises en avant
+    add_theme_support( 'title-tag' ); //Ajouter automatiquement le titre du site dans l'en-tête du site
+
+
+
     add_theme_support('custom-logo', array(
         'width'         =>   85,
         'height'        =>   160,
