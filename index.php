@@ -18,7 +18,25 @@ get_header();
 ?>
 
 <div class="content-area">
-    <div class="slider">Slider</div>
+    <div class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="slide1.jpg" />
+                </li>
+                <li>
+                    <img src="slide2.jpg" />
+                </li>
+                <li>
+                    <img src="slide3.jpg" />
+                </li>
+                <li>
+                    <img src="slide4.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    
     <div class="popular-products">Popular Products</div>
     <div class="new-arrivals">New Arrivals</div>
     <div class="deal-of-the-week">Deal of the week</div>
