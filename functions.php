@@ -48,6 +48,31 @@ function my_theme_scripts() {
         filemtime(get_template_directory() .'/style.css') //path not a url
     );
 
+    //flexslider style +scripts 
+    wp_enqueue_style(
+        'flexslider-css',
+        get_template_directory_uri() . '/inc/flexslider/flexslider.css',
+        array(),
+        '1.0.0',
+        'all'
+    );
+
+    wp_enqueue_script(
+        'flexslider-min-js',
+        get_template_directory_uri() .'/inc/flexslider/flexslider.min.js',
+        array(),
+        '1.0.0',
+        true
+    );
+
+    wp_enqueue_script(
+        'flexslider-js',
+        get_template_directory_uri() .'inc/js/flexslider.js',
+        array('jquery'),
+        '2.7.2',
+        true
+    );
+
      // Déclarer jQuery
      wp_enqueue_script( 
         'jquery', 
@@ -71,6 +96,7 @@ function my_theme_scripts() {
           '1.0.0',
           true // this boolean makes the script charge in wp_footer()
     ); // make sure you set up this in your pages
+    
 }
 
 
