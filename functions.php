@@ -1,12 +1,7 @@
 <?php
 //STEPS : STYLING OK / MENU / WP _SUPPORT / LOOP 
 
-// Ajouter la prise en charge des images mises en avant
-add_theme_support( 'post-thumbnails' );
-
-// Ajouter automatiquement le titre du site dans l'en-tête du site
-add_theme_support( 'title-tag' );
-
+require get_template_directory() . '/inc/customizer.php';
 /**
  * Register Custom Navigation Walker
  */
@@ -111,6 +106,18 @@ function my_theme_config(){
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-slider');
+  
+    add_theme_support( 'post-thumbnails' );   // Ajouter la prise en charge des images mises en avant
+    add_theme_support( 'title-tag' ); //Ajouter automatiquement le titre du site dans l'en-tête du site
+
+
+
+    add_theme_support('custom-logo', array(
+        'width'         =>   85,
+        'height'        =>   160,
+        'flex-height'   =>   true,
+        "flex-width"    =>   true
+    ));
 
 
 
@@ -124,3 +131,21 @@ if(class_exists("WooCommerce")){//prevent shutdownif woocommerce is not installe
 }
 
 
+
+
+/**
+ * Show cart contents / total Ajax
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', 'my_theme_header_add_to_cart_fragment' );
+
+function my_theme_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+    <span class="items"> <?= WC()->cart->get_cart_contents_count();?></span>
+	<?php
+	$fragments['span.items'] = ob_get_clean();
+	return $fragments;
+}

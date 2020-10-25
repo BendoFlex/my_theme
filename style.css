@@ -32,7 +32,6 @@ body {
     display:flex;
     justify-content: space-between;
     margin :20px;
-    background-color: red;
 }
 
 .second-column {
@@ -43,14 +42,15 @@ body {
     background-color: blue;
 }
 /**SEARCH**/
-.search-form .search-submit{
-    height:20px;
+.search-form button{
+    height:26px;
+    width:26px;
     background-image: url('img/ui-search.png');
     background-repeat: no-repeat;
     border:none;
 }
 
-.search-form .search-field{
+.search-form input[type="search"]{
     background-color: transparent;
     padding:0.3rem 0.1rem;
     border:none
@@ -70,6 +70,8 @@ body {
 .menu li {
     list-style-type: none;
 }
+
+
 
 /**FOOTER**/
 .copy_2 {
@@ -98,7 +100,7 @@ body {
     flex: 0 0 50%;
     max-width: 50%;
     }
-
+/**Half the page**/
 @media all and (max-width:767px){
 
     .woocommerce .col2-set .col-1,
@@ -106,5 +108,21 @@ body {
     flex: 0 0 100%;
     max-width: 100%;
 }
+/**100%**/
+}
 
+/**CART*/
+
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+    width:200px;
+}
+
+.cart .items {
+    background-color: red;
+    color:#fff;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    text-align: center;
+    display:inline-block
 }
